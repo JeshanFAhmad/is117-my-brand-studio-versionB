@@ -13,6 +13,22 @@ test("negative: choosing no size explains the problem and keeps the bag empty", 
   await expect(page.locator("#bag-count")).toHaveText("0");
 });
 
+test("product detail format exposes a gallery and a sticky purchase panel", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator(".product-breadcrumb")).toBeVisible();
+  await expect(page.locator(".product-gallery")).toBeVisible();
+  await expect(page.locator(".purchase-panel")).toBeVisible();
+
+  await page.getByRole("button", { name: "Detail view" }).click();
+  await expect(page.locator(".product-gallery")).toHaveAttribute(
+    "data-view",
+    "detail",
+  );
+  await expect(page.locator(".visual-label")).toContainText("Detail view");
+});
+
 test("positive: a shopper can choose sizes, add items, and empty the demo bag", async ({
   page,
 }) => {

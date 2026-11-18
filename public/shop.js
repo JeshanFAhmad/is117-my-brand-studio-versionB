@@ -59,6 +59,26 @@
     form.querySelector('input[name="size"]:checked')?.focus();
   });
 
+  const productGallery = document.querySelector(".product-gallery");
+  const galleryThumbnails = document.querySelectorAll(".gallery-thumbnail");
+  const galleryLabel = document.querySelector(".visual-label > :last-child");
+  galleryThumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener("click", () => {
+      const detailView = thumbnail.getAttribute("aria-label") === "Detail view";
+      galleryThumbnails.forEach((option) => {
+        const isSelected = option === thumbnail;
+        option.classList.toggle("is-active", isSelected);
+        if (isSelected) {
+          option.setAttribute("aria-current", "true");
+        } else {
+          option.removeAttribute("aria-current");
+        }
+      });
+      productGallery.dataset.view = detailView ? "detail" : "front";
+      galleryLabel.textContent = detailView ? "Detail view" : "Front view";
+    });
+  });
+
   const styleChoices = document.querySelectorAll("[data-style-choice]");
   const styleSuggestion = document.querySelector("#style-suggestion");
   if (!styleSuggestion) return;
