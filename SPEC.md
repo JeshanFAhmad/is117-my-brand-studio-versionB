@@ -108,4 +108,6 @@ Write a short result and link only evidence that exists. A passing browser check
 
 ## Later
 
-No follow-up is selected. After keeping `BRAND-001`, choose one next cycle: perhaps a brand story, a supported fit guide, or richer demo-bag behavior. Agree its scope and add one new spec ID at that time.
+No follow-up feature is kept. The storefront layout has a current product-detail format change on branch `feature/product-detail-format`: a breadcrumb, a left gallery with front/detail controls, and a right sticky purchase panel that preserves size selection and demo-bag behavior.
+
+After keeping `BRAND-001`, choose one next cycle: perhaps a brand story, a supported fit guide, or richer demo-bag behavior. Agree its scope and add one new spec ID at that time.
